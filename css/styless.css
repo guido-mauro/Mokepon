@@ -1,0 +1,83 @@
+body{
+    background-color: beige;
+}
+
+
+
+
+.tarjeta-mokepon{
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border:2px transparent;
+    border-radius: 15%;
+
+}
+
+.tarjeta-mokepon:hover{
+
+    
+    border:2px solid pink;
+    border-radius: 15%;
+    background-color:white ;
+    cursor:pointer;
+
+}
+
+input:checked + label{
+    zoom:110%;
+    border:2px solid pink;
+    border-radius: 15%;
+    background-color:white ;
+}
+
+
+
+#div-tarjetas{
+    display:flex;
+    gap:30px;
+}
+
+.imagen-mokepon{
+    
+    width:200px;
+    height:200px;
+
+}
+
+#seleccionar-mascota{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    height:100vh;
+    justify-content: center;
+}
+
+.inputsito{
+    display:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
