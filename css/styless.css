@@ -96,10 +96,20 @@ input:checked + label{
 }
 
 
+#seccion-mapa{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
 
 
-
-
+#mapita{
+    border:solid 2px white;
+    background-image:url("/Users/Guido/Desktop/platzii2/assets/mokemap.webp");
+    background-size: 100% 100%;
+}
 
 
 

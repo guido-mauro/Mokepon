@@ -10,7 +10,7 @@ let mascotaJugador = null
 let arregloDeInputs = []
 
 let sectionMapa = document.getElementById("seccion-mapa")
-
+sectionMapa.style.display = 'none'
 
 
 
@@ -92,6 +92,8 @@ function seleccionarMascotaJugador(){
 
     }
 
+    sectionSeleccionarMascota.style.display = 'none'
+    sectionMapa.style.display = 'flex'
 
 
 
