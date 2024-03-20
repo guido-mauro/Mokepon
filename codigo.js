@@ -1,9 +1,22 @@
 window.addEventListener('load',iniciarJuego)
 
-
-let mokepones = []
+let sectionSeleccionarMascota = document.getElementById("seleccionar-mascota")
 let tarjetaIndividual
 let divTarjetas = document.getElementById("div-tarjetas")
+let botonContinuar = document.getElementById("boton-continuar")
+botonContinuar.addEventListener('click', seleccionarMascotaJugador)
+
+let mascotaJugador = null
+let arregloDeInputs = []
+
+let sectionMapa = document.getElementById("seccion-mapa")
+
+
+
+
+let mokepones = []
+
+
 
 class Mokepon{
 
@@ -25,6 +38,7 @@ Ratigueya = new Mokepon("Ratigueya","./assets/mokepons_mokepon_ratigueya_attack.
 
 mokepones.push(Hipodoge,Capipepo,Ratigueya)
 console.log(mokepones)
+
 
 
 function iniciarJuego(){
@@ -50,9 +64,38 @@ function iniciarJuego(){
 
     });
 
+
+    arregloDeInputs = document.querySelectorAll(".inputsito")
+
+    
+
+
+
+
+
 }
 
+function seleccionarMascotaJugador(){
 
+    arregloDeInputs.forEach((inputsito) => {
+
+        if(inputsito.checked) 
+            {mascotaJugador = inputsito.id
+            console.log(mascotaJugador)
+            alert(`Usted eligio a ${mascotaJugador}`)}
+
+    });
+
+    if (mascotaJugador == null ){
+
+        alert("Seleccione un personaje por favor")
+
+    }
+
+
+
+
+}
 
 
 
