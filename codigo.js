@@ -104,8 +104,9 @@ function seleccionarMascotaJugador(){
         if(inputsito.checked) 
             {mascotaJugador = inputsito.id
             console.log(mascotaJugador)
-            alert(`Usted eligio a ${mascotaJugador}`)}
-
+            alert(`Usted eligio a ${mascotaJugador}`)
+            sectionSeleccionarMascota.style.display = 'none'
+            sectionMapa.style.display = 'flex'}
     });
 
     if (mascotaJugador == null ){
@@ -114,8 +115,7 @@ function seleccionarMascotaJugador(){
 
     }
 
-    sectionSeleccionarMascota.style.display = 'none'
-    sectionMapa.style.display = 'flex'
+
 
 
 
