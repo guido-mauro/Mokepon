@@ -15,7 +15,7 @@ let sectionMapa = document.getElementById("seccion-mapa")
 
 
 let mokepones = []
-
+let mascotaJugadorObjeto
 
 
 class Mokepon{
