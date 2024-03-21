@@ -9,22 +9,44 @@ botonContinuar.addEventListener('click', seleccionarMascotaJugador)
 let mascotaJugador = null
 let arregloDeInputs = []
 
+
+
+
+
+
+
 let sectionMapa = document.getElementById("seccion-mapa")
 sectionMapa.style.display = 'none'
 
 
 
+
+let mascotaJugadorObjeto 
+
+
+
+
 let mokepones = []
+
+let mapa = document.getElementById("mapita")
+let lienzo = mapa.getContext("2d")
+
+lienzo.fillRect(20,30,40,40)
+
+
 
 
 
 class Mokepon{
 
-    constructor(nombre,foto,vida){
+    constructor(nombre,foto,vida,fotoMapa,){
 
         this.nombre = nombre;
         this.foto = foto;
         this.vida = vida;
+
+       
+
 
     }
 
