@@ -114,12 +114,29 @@ input:checked + label{
 
 
 
+.botonMovimiento{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    margin: 5px 5px 5px 5px;
+    width: 100px;
+    height: 25px;
+    justify-content: center;
+    font-family: cursive;
+    cursor:pointer;
+}
 
 
 
 
+#div-botones-movimiento{
+
+    display:flex;
+    
 
 
+}
 
 
 

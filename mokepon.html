@@ -31,12 +31,12 @@
 
         <canvas id = "mapita" width="400" height="500" ></canvas>
 
-        <button id ="boton- " class ="botonMovimiento" onmousedown="moverArriba()">Arriba</button>
-        <div>
+        <button id ="boton- " class ="botonMovimiento" onmousedown="moverArriba()" onmouseup="detenerMovimiento()">Arriba</button>
+        <div id = "div-botones-movimiento">
 
-            <button id ="boton-izquierda " class ="botonMovimiento" onmousedown="moverIzquierda()">Izquierda</button>
-            <button id ="boton-abajo " class ="botonMovimiento" onmousedown="moverAbajo()">Abajo</button>
-            <button id ="boton-derecha " class ="botonMovimiento" onmousedown="moverDerecha()">Derecha</button>
+            <button id ="boton-izquierda " class ="botonMovimiento" onmousedown="moverIzquierda()" onmouseup="detenerMovimiento()">Izquierda</button>
+            <button id ="boton-abajo " class ="botonMovimiento" onmousedown="moverAbajo()" onmouseup="detenerMovimiento()">Abajo</button>
+            <button id ="boton-derecha " class ="botonMovimiento" onmousedown="moverDerecha()" onmouseup="detenerMovimiento()">Derecha</button>
 
         </div>
 

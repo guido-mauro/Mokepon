@@ -75,12 +75,12 @@ Hipodoge = new Mokepon("Hipodoge","./assets/mokepons_mokepon_hipodoge_attack.png
 Capipepo = new Mokepon("Capipepo","./assets/mokepons_mokepon_capipepo_attack.png",5,"./assets/capipepo.png",50,50)
 Ratigueya = new Mokepon("Ratigueya","./assets/mokepons_mokepon_ratigueya_attack.png",5,"./assets/ratigueya.png",50,50)
 
+HipodogeEnemigo = new Mokepon("HipodogeEnemigo","./assets/mokepons_mokepon_hipodoge_attack.png",5,"./assets/hipodoge.png",mapa.width-100,50)
+CapipepoEnemigo = new Mokepon("CapipepoEnemigo","./assets/mokepons_mokepon_capipepo_attack.png",5,"./assets/capipepo.png",50,mapa.height-100)
+RatigueyaEnemigo = new Mokepon("RatigueyaEnemigo","./assets/mokepons_mokepon_ratigueya_attack.png",5,"./assets/ratigueya.png",mapa.width-100,mapa.height-100)
 
-
-
-// HipodogeEnemigo = new Mokepon ("Enemigo","",5,"",,)
-// CapipepoEnemigo = new Mokepon ("Enemigo","",5,"",,)
-// RatigueyaEnemigo = new Mokepon ("Enemigo","",5,"",,)
+let mokeponesEnemigos = []
+mokeponesEnemigos.push(HipodogeEnemigo,CapipepoEnemigo,RatigueyaEnemigo)
 
 
 
@@ -148,15 +148,40 @@ function seleccionarMascotaJugador(){
 
     console.log (mascotaJugadorObjeto)    
 
-    pintarCanvas(mascotaJugadorObjeto)
-
+    let intervalo = setInterval(pintarCanvas,50)
+    iniciarMapa()
 }        
-       
+
+
+function iniciarMapa(){
+
+    pintarCanvas()
+
+
+
+
+}
+
+function pintarEnemigos(){
+
+    mokeponesEnemigos.forEach((mokeponEnemigo) => {
+        mokeponEnemigo.pintarPersonaje()
+    });
+
+
+}
         
-        
-function pintarCanvas(mascotaJugadorObjeto){
+function pintarCanvas(){
+
+    lienzo.clearRect(0,0,mapa.width,mapa.height)
+    
+    mascotaJugadorObjeto.x = mascotaJugadorObjeto.x + mascotaJugadorObjeto.velocidadX
+    mascotaJugadorObjeto.y = mascotaJugadorObjeto.y + mascotaJugadorObjeto.velocidadY
+
 
     mascotaJugadorObjeto.pintarPersonaje()
+
+    pintarEnemigos()
 
 }
 
@@ -164,31 +189,22 @@ function pintarCanvas(mascotaJugadorObjeto){
 
 function moverDerecha(){
 
-    lienzo.clearRect(0,0,mapa.width,mapa.height)
-    mascotaJugadorObjeto.x = mascotaJugadorObjeto.x + 5
-
-    pintarCanvas(mascotaJugadorObjeto)
-
+    mascotaJugadorObjeto.velocidadX = 5;
 
 }
 
 
 function moverIzquierda(){
 
-    lienzo.clearRect(0,0,mapa.width,mapa.height)
-    mascotaJugadorObjeto.x = mascotaJugadorObjeto.x - 5
-
-    pintarCanvas(mascotaJugadorObjeto)
+    mascotaJugadorObjeto.velocidadX = - 5
 
 
 }
 
 function moverArriba(){
 
-    lienzo.clearRect(0,0,mapa.width,mapa.height)
-    mascotaJugadorObjeto. y= mascotaJugadorObjeto.y - 5
+    mascotaJugadorObjeto.velocidadY = - 5
 
-    pintarCanvas(mascotaJugadorObjeto)
 
 
 }
@@ -196,25 +212,24 @@ function moverArriba(){
 
 function moverAbajo(){
 
-    lienzo.clearRect(0,0,mapa.width,mapa.height)
-    mascotaJugadorObjeto. y= mascotaJugadorObjeto.y + 5
+    mascotaJugadorObjeto.velocidadY = 5
 
-    pintarCanvas(mascotaJugadorObjeto)
+
+}
+
+
+function detenerMovimiento(){
+
+
+    mascotaJugadorObjeto.velocidadX = 0;
+    mascotaJugadorObjeto.velocidadY = 0;
 
 
 }
 
 
 
-
-
-
-
-
-
-
-
-
+window.addEventListener('keydown',(e)=>{console.log((e).key)})
 
 
 
