@@ -228,8 +228,42 @@ function detenerMovimiento(){
 }
 
 
+window.addEventListener('keydown',movimientoTeclado)
+window.addEventListener('keyup',detenerMovimiento)
 
-window.addEventListener('keydown',(e)=>{console.log((e).key)})
+function movimientoTeclado(event){
+
+
+    switch (event.key) {
+        
+        
+        case 'ArrowUp':
+            moverArriba();
+        break;
+
+        case 'ArrowDown':
+            moverAbajo()
+        break;
+
+        case 'ArrowRight':
+            moverDerecha()
+        break;
+
+        case 'ArrowLeft':
+            moverIzquierda()
+        break;
+
+    
+        default:
+            break;
+    }
+
+
+
+
+
+}
+
 
 
 
