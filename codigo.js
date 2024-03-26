@@ -182,7 +182,7 @@ function pintarCanvas(){
     mascotaJugadorObjeto.pintarPersonaje()
 
     pintarEnemigos()
-
+    if (mascotaJugadorObjeto.velocidadX !==0 || mascotaJugadorObjeto.velocidadY !==0 ){revisarColision()}
 }
 
 
@@ -260,12 +260,45 @@ function movimientoTeclado(event){
 
 
 
-
-
 }
 
 
+function revisarColision(){
 
+    let arribaEnemigo
+    let abajoEnemigo
+    let izquierdaEnemigo
+    let derechaEnemigo
+
+    let arribaJugador = mascotaJugadorObjeto.y
+    let abajoJugador = mascotaJugadorObjeto.y + mascotaJugadorObjeto.alto
+    let izquierdaJugador = mascotaJugadorObjeto.x
+    let derechaJugador = mascotaJugadorObjeto.x + mascotaJugadorObjeto.ancho
+
+
+
+
+    mokeponesEnemigos.forEach((mokeponEnemigo) => {
+        
+        arribaEnemigo = mokeponEnemigo.y
+        abajoEnemigo = mokeponEnemigo.y + mokeponEnemigo.alto
+        izquierdaEnemigo = mokeponEnemigo.x 
+        derechaEnemigo = mokeponEnemigo.x+ mokeponEnemigo.ancho
+
+        if(arribaJugador>abajoEnemigo || abajoJugador<arribaEnemigo || izquierdaJugador>derechaEnemigo || derechaJugador<izquierdaEnemigo )
+        
+            {}
+
+        else {alert("Hay colision");detenerMovimiento()}
+
+
+    });
+
+
+
+
+
+}
 
 
 
