@@ -138,9 +138,34 @@ input:checked + label{
 
 }
 
+#seccion-combate{
+
+    display: flex;
+    height:100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+
+#divBotonesAtaque{
+
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height:100px;
+    background-color:green;
 
 
 
 
+
+
+
+}
 
 

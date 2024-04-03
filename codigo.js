@@ -37,7 +37,7 @@ let mokepones = []
 
 class Mokepon{
 
-    constructor(nombre,foto,vida,fotoCara,x,y){
+    constructor(nombre,foto,vida,fotoCara,x,y,ataques){
 
         this.nombre = nombre;
         this.foto = foto;
@@ -54,7 +54,7 @@ class Mokepon{
 
         this.velocidadX = 0;
         this.velocidadY = 0;
-
+        this.ataques = [];
         
         
         
@@ -87,6 +87,80 @@ mokeponesEnemigos.push(HipodogeEnemigo,CapipepoEnemigo,RatigueyaEnemigo)
 mokepones.push(Hipodoge,Capipepo,Ratigueya)
 console.log(mokepones)
 
+
+Hipodoge.ataques.push(
+
+
+    {nombre: '💧' , id:"ataque-agua" },
+    {nombre: '💧' , id:"ataque-agua" },
+    {nombre: '💧' , id:"ataque-agua" },
+    {nombre: '🌱' , id:"ataque-tierra" },
+    {nombre: '🔥' , id:"ataque-fuego" },
+
+
+)
+
+HipodogeEnemigo.ataques.push(
+
+
+    {nombre: '💧' , id:"ataque-agua" },
+    {nombre: '💧' , id:"ataque-agua" },
+    {nombre: '💧' , id:"ataque-agua" },
+    {nombre: '🌱' , id:"ataque-tierra" },
+    {nombre: '🔥' , id:"ataque-fuego" },
+
+
+)
+
+Capipepo.ataques.push(
+
+
+    {nombre: '🌱' , id:"ataque-tierra" },
+    {nombre: '🌱' , id:"ataque-tierra" },
+    {nombre: '🌱' , id:"ataque-tierra" },
+    {nombre: '💧' , id:"ataque-agua" },
+    {nombre: '🔥' , id:"ataque-fuego" },
+
+
+)
+
+
+CapipepoEnemigo.ataques.push(
+
+
+    {nombre: '🌱' , id:"ataque-tierra" },
+    {nombre: '🌱' , id:"ataque-tierra" },
+    {nombre: '🌱' , id:"ataque-tierra" },
+    {nombre: '💧' , id:"ataque-agua" },
+    {nombre: '🔥' , id:"ataque-fuego" },
+
+
+)
+
+
+Ratigueya.ataques.push(
+
+
+    {nombre: '🔥' , id:"ataque-fuego" },
+    {nombre: '🔥' , id:"ataque-fuego" },
+    {nombre: '🔥' , id:"ataque-fuego" },
+    {nombre: '🌱' , id:"ataque-tierra" },
+    {nombre: '💧' , id:"ataque-agua" },
+
+
+)
+
+RatigueyaEnemigo.ataques.push(
+
+
+    {nombre: '🔥' , id:"ataque-fuego" },
+    {nombre: '🔥' , id:"ataque-fuego" },
+    {nombre: '🔥' , id:"ataque-fuego" },
+    {nombre: '🌱' , id:"ataque-tierra" },
+    {nombre: '💧' , id:"ataque-agua" },
+
+
+)
 
 
 function iniciarJuego(){
@@ -289,7 +363,7 @@ function revisarColision(){
         
             {}
 
-        else {alert("Hay colision");detenerMovimiento()}
+        else {alert("Hay colision");detenerMovimiento();acomodarSecciones()}
 
 
     });
@@ -301,14 +375,58 @@ function revisarColision(){
 }
 
 
+let seccionCombate = document.getElementById("seccion-combate")
+seccionCombate.style.display = 'none'
+
+
+
+function acomodarSecciones(){
+
+    sectionMapa.style.display = 'none'
+    seccionCombate.style.display = 'flex'
+    crearBotonesAtaque()
+
+}
+
+
+
+
+let divBotonesAtaque 
+let botonAtaqueIndividual
+
+
+
+
+function crearBotonesAtaque(){
+
+
+    divBotonesAtaque = document.createElement('div')
+    divBotonesAtaque.setAttribute("id" , "divBotonesAtaque")
+    seccionCombate.appendChild(divBotonesAtaque)
+
+    mascotaJugadorObjeto.ataques.forEach((ataque) => {
+
+        botonAtaqueIndividual = 
+        
+            `
+                <button id = "${ataque.id}">${ataque.nombre}</button>
+            
+            
+            
+            
+            
+            `
 
 
 
 
 
 
+    });
 
 
+
+}
 
 
 
