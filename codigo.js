@@ -336,6 +336,7 @@ function movimientoTeclado(event){
 
 }
 
+let mascotaEnemigoObjeto
 
 function revisarColision(){
 
@@ -348,8 +349,7 @@ function revisarColision(){
     let abajoJugador = mascotaJugadorObjeto.y + mascotaJugadorObjeto.alto
     let izquierdaJugador = mascotaJugadorObjeto.x
     let derechaJugador = mascotaJugadorObjeto.x + mascotaJugadorObjeto.ancho
-
-    let mascotaEnemigoObjeto
+    mascotaEnemigoObjeto = null
 
 
     mokeponesEnemigos.forEach((mokeponEnemigo) => {
@@ -363,12 +363,10 @@ function revisarColision(){
         
             {}
 
-        else {alert("Hay colision");detenerMovimiento();acomodarSecciones(); mascotaEnemigoObjeto = mokeponEnemigo ; console.log(mascotaEnemigoObjeto)}
+        else {alert("Hay colision");detenerMovimiento(); mascotaEnemigoObjeto = mokeponEnemigo ; console.log(mascotaEnemigoObjeto),acomodarSecciones()}
         
 
     });
-
-
 
 
 
@@ -389,13 +387,10 @@ function acomodarSecciones(){
 }
 
 
-
-
 let divBotonesAtaque 
 let botonAtaqueIndividual
-
-
-
+let secuenciaDeAtaquesJugador = []
+let secuenciaDeAtaquesEnemigo = []
 
 function crearBotonesAtaque(){
 
@@ -417,8 +412,6 @@ function crearBotonesAtaque(){
             
             
             
-            
-            
             `
 
 
@@ -434,19 +427,82 @@ function crearBotonesAtaque(){
 
     arregloDeBotones.forEach((boton) => {
         
-        boton.addEventListener('click',(e)=>{boton.disabled = 'true'})
-
+        boton.addEventListener('click',(e)=>{boton.disabled = 'true'; secuenciaDeAtaquesJugador.push(boton.innerText);console.log(secuenciaDeAtaquesJugador)})
+        
 
     });
+
+    ataqueAleatorioDelEnemigo()
+
+
+}
+
+function aleatorio(min,max){
+
+
+    return Math.floor(Math.random()*(max-min+1)+min)
+
+
+}
+
+let arregloDeInputs2 = []
+let secAtaquesEnemigo = []
+
+function ataqueAleatorioDelEnemigo(){
+
+    x=aleatorio(0,mascotaEnemigoObjeto.ataques.length-1)
+
+    console.log(x)
+    secAtaquesEnemigo[4] = null
+
+    for (let i = 0; i < mascotaEnemigoObjeto.ataques.length; i++) {
+        
+        let inputMovil = document.createElement('input')
+            inputMovil.setAttribute("id",`inputmovil${i}`)
+            inputMovil.setAttribute ("class" , "inputmovil")
+            inputMovil.setAttribute("type","checkbox")
+        
+        arregloDeInputs2.push(inputMovil)
+
+
+    }
+
+    y = aleatorio(0,mascotaEnemigoObjeto.ataques.length-1)
+    console.log(y)
+
+    for (let i = 0; i < mascotaEnemigoObjeto.ataques.length; i++) {
+        
+        while(arregloDeInputs2[y].checked && secAtaquesEnemigo[4] == null ){
+
+            y = aleatorio(0,mascotaEnemigoObjeto.ataques.length-1)   
+            console.log(y)         
+
+        }
+
+        if(!arregloDeInputs2[y].checked){
+
+            arregloDeInputs2[y].checked = 'true'
+            secAtaquesEnemigo[i] = mascotaEnemigoObjeto.ataques[y]
+            console.log(secAtaquesEnemigo[i])
+
+
+        }
+
+        
+        
+    }
+
+    console.log(arregloDeInputs2)
+
+
+    console.log(secAtaquesEnemigo)
+
+
 
 
 
 
 }
-
-
-
-
 
 
 
