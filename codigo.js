@@ -349,7 +349,7 @@ function revisarColision(){
     let izquierdaJugador = mascotaJugadorObjeto.x
     let derechaJugador = mascotaJugadorObjeto.x + mascotaJugadorObjeto.ancho
 
-
+    let mascotaEnemigoObjeto
 
 
     mokeponesEnemigos.forEach((mokeponEnemigo) => {
@@ -363,8 +363,8 @@ function revisarColision(){
         
             {}
 
-        else {alert("Hay colision");detenerMovimiento();acomodarSecciones()}
-
+        else {alert("Hay colision");detenerMovimiento();acomodarSecciones(); mascotaEnemigoObjeto = mokeponEnemigo ; console.log(mascotaEnemigoObjeto)}
+        
 
     });
 
@@ -399,17 +399,21 @@ let botonAtaqueIndividual
 
 function crearBotonesAtaque(){
 
+    let arregloDeBotones = []
 
     divBotonesAtaque = document.createElement('div')
     divBotonesAtaque.setAttribute("id" , "divBotonesAtaque")
     seccionCombate.appendChild(divBotonesAtaque)
 
+    let contadorParaId = 0
+
     mascotaJugadorObjeto.ataques.forEach((ataque) => {
 
+        contadorParaId = contadorParaId + 1
         botonAtaqueIndividual = 
         
             `
-                <button id = "${ataque.id}">${ataque.nombre}</button>
+                <button id = "${ataque.id + contadorParaId}" class ="boton-ataque"> ${ataque.nombre} </button>
             
             
             
@@ -418,11 +422,23 @@ function crearBotonesAtaque(){
             `
 
 
-
+        divBotonesAtaque.innerHTML += botonAtaqueIndividual
 
 
 
     });
+
+    arregloDeBotones = document.querySelectorAll(".boton-ataque")
+    console.log(arregloDeBotones)
+
+
+    arregloDeBotones.forEach((boton) => {
+        
+        boton.addEventListener('click',(e)=>{boton.disabled = 'true'})
+
+
+    });
+
 
 
 
